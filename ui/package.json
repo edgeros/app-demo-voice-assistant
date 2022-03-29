@@ -1,0 +1,61 @@
+{
+  "name": "vue-ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "cp": "cpx dist/**/* ../eap/public",
+    "clean": "rimraf ../eap/public",
+    "pack": "npm run build && npm run clean && npm run cp"
+  },
+  "dependencies": {
+    "@edgeros/web-sdk": "^1.0.6",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "crypto-js": "^4.1.1",
+    "echarts": "^5.2.1",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "register-service-worker": "^1.7.1",
+    "socket.io-client": "^2.3.0",
+    "vant": "^2.12.12",
+    "voice-input-button2": "^1.1.9",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.2.0",
+    "vue-socket.io-extended": "^4.1.0",
+    "vuex": "^3.6.2",
+    "worker-loader": "^3.0.8"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/lodash": "^4.14.170",
+    "@types/randomcolor": "^0.5.5",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "babel-plugin-import": "^1.13.3",
+    "cpx": "^1.5.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.1.1",
+    "typescript": "~4.1.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "prettier": {
+    "stylelintIntegration": true,
+    "eslintIntegration": true
+  }
+}

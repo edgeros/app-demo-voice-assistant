@@ -1,0 +1,11 @@
+# outfile
+/dist
+/temp
+
+# node_modules
+/node_modules
+
+# ide
+.idea
+.DS_Store
+.vscode/*

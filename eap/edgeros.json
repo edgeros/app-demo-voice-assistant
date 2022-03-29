@@ -1,0 +1,54 @@
+{
+    "name": "智能语音控制",
+    "bundleid": "eap.intelligent.audio.dev",
+    "ignore_modules": [
+        "@edgeros/eslint-plugin-jsre",
+        "@edgeros/jsre-types"
+    ],
+    "ignore_path": [
+        "./test/**",
+        "./temp/**",
+        "src/**"
+    ],
+    "assets": {
+        "ico_big": "assets/big.png",
+        "ico_small": "assets/small.png",
+        "ico_widget": "assets/widget.png",
+        "splash": "assets/splash.png"
+    },
+    "program": {
+        "gss": false,
+        "log": "console",
+        "will": false,
+        "reside": false,
+        "mesv": "1.4.3",
+        "experimental": false
+    },
+    "loading": {
+        "splash": "splash",
+        "background": "#000000",
+        "animation": "enlarge"
+    },
+    "vendor": {
+        "id": "100001",
+        "name": "111111",
+        "email": "1111@qq.com",
+        "phone": "",
+        "fax": ""
+    },
+    "update": {
+        "remove": [
+            "public"
+        ]
+    },
+    "widget": [
+        {
+            "ico": "ico_widget",
+            "name": "My Widget",
+            "path": "widget",
+            "rows": 2,
+            "columns": 2,
+            "category": "Demo"
+        }
+    ]
+}

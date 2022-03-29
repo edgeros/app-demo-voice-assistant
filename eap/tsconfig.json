@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "watch": false,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "es6"
+    ],
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@edgeros"
+    ],
+  },
+  "include": [
+    "src/**/*.ts"
+, "src/libs/sddc_device"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,46 @@
+body {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+  // background-color: var(--bgColor);
+  // * {
+  //   color: var(--color);
+  // }
+}
+
+svg.iconfont {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+*::-webkit-scrollbar {
+  width: 0px;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  display: block;
+  width: 8px;
+  border-radius: 4px;
+  background: #bbb; /*内层轨道*/
+}
+
+:root {
+  --bgColor: #fff;
+  --color: #333;
+}
+
+.van-popup--top {
+  top: var(--edger-safe-area-inset-top); // 消息提示
+}

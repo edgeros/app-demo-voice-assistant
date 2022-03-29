@@ -1,0 +1,73 @@
+@import '../var.less';
+
+.audio {
+  width: 100%;
+  // height: 100%;
+  background-color: #fff;
+  // display: flex;
+  // flex-direction: column;
+  // overflow: auto;
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+  }
+  h3 {
+    padding-left: 24px;
+  }
+  .audio-device {
+    margin: 16px 24px;
+    display: flex;
+    max-height: 200px;
+    overflow: auto;
+    :global(.van-checkbox) {
+      margin: 8px 0;
+    }
+  }
+  .audio-status {
+    padding: 24px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .audio-text {
+    text-align: center;
+    // padding: 24px;
+  }
+  .audio-robot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > img {
+      width: 100%;
+      border-radius: 50%;
+      transition: all 1s;
+      // &:active {
+      transform: scale(0.9);
+      // }
+    }
+  }
+  .audio-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 24px;
+    
+    > img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      transition: transform 0.5s;
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .audio-tips {
+    // text-align: center;
+    padding: 0 24px;
+  }
+}
