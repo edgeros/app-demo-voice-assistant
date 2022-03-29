@@ -73,7 +73,7 @@ const IatRecorder = class {
         // 重新开始录音
         setTimeout(() => {
           this.webSocketSend();
-        }, 300);
+        }, 500);
       };
       iatWS.onmessage = e => {
         this.result(e.data);
@@ -215,8 +215,9 @@ const IatRecorder = class {
         language: this.language, //小语种可在控制台--语音听写（流式）--方言/语种处添加试用
         domain: 'iat',
         accent: this.accent, //中文方言可在控制台--语音听写（流式）--方言/语种处添加试用
-        dwa: 'wpgs',
-        ptt: 0
+        // dwa: 'wpgs',
+        vad_eos: 500000,
+        // ptt: 0
       },
       data: {
         status: 0,
@@ -229,16 +230,16 @@ const IatRecorder = class {
     // console.log('参数accent：', this.accent);
     this.webSocket.send(JSON.stringify(params));
     startTime = Date.parse(new Date());
-    this.handlerInterval = setInterval(() => {
+    const handlerInterval = setInterval(() => {
       // websocket未连接
       if (this.webSocket.readyState !== 1) {
         console.log('websocket未连接');
         this.audioData = [];
-        clearInterval(this.handlerInterval);
+        clearInterval(handlerInterval);
         return;
       }
       if (this.audioData.length === 0) {
-        console.log('自动关闭', this.status);
+        // console.log('自动关闭', this.status);
         if (this.status === 'end') {
           this.webSocket.send(
             JSON.stringify({
@@ -250,8 +251,7 @@ const IatRecorder = class {
               }
             })
           );
-          this.audioData = [];
-          clearInterval(this.handlerInterval);
+          clearInterval(handlerInterval);
         }
         return false;
       }
@@ -310,10 +310,13 @@ const IatRecorder = class {
   }
   start() {
     this.recorderStart();
-    this.setResultText({ resultText: '', resultTextTemp: '' });
+    this.resetResult()
   }
   stop() {
     this.recorderStop();
+  }
+  resetResult() {
+    this.setResultText({ resultText: '', resultTextTemp: '' });
   }
 };
 

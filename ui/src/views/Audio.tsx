@@ -60,6 +60,9 @@ export default class Audio extends Vue {
   t = 0;
   showDeviceDialog = false;
   init = false;
+  aliveTime = 0;
+  alive_t = 0;
+  resultText = '';
 
   public created() {
     this.$socket.client.emit('list', (res: IResponse) => {
@@ -76,6 +79,7 @@ export default class Audio extends Vue {
   @Watch('iatRecorder.resultText', { immediate: true })
   public watchText(result: string) {
     if (result) {
+      this.resultText = result
       if (result.includes('小爱小爱')) {
         Notify({ message: '主人我在！', type: 'success' });
         this.playAudio(prepareAudio);
@@ -126,6 +130,25 @@ export default class Audio extends Vue {
     }
   }
 
+  @Watch('iatRecorder.status')
+  public watchStatus(status: 'init' | 'ing' | 'end') {
+    switch (status) {
+      case 'ing':
+        // 开始计时
+        this.aliveTime = 1;
+        this.alive_t = setInterval(() => {
+          this.aliveTime++;
+        }, 1000);
+        break;
+      case 'end':
+        clearInterval(this.alive_t)
+        this.aliveTime = 0;
+        break;
+      default:
+        break;
+    }
+  }
+
   public render() {
     return (
       <div class={style['audio']}>
@@ -136,7 +159,7 @@ export default class Audio extends Vue {
             <img src={robot1Png} alt='robot' />
           </div>
         )}
-        {this.iatRecorder && <div class={style['audio-text']}>{this.iatRecorder.resultText || '-'}</div>}
+        {<div class={style['audio-text']}>{this.resultText || '-'}</div>}
 
         <div class={style['audio-status']}>
           <van-button
@@ -147,11 +170,11 @@ export default class Audio extends Vue {
             }}>
             设备管理
           </van-button>
-          
+
           <van-button
             type={this.iatRecorder?.status === 'ing' ? 'primary' : 'danger'}
             icon={this.iatRecorder?.status === 'ing' ? 'success' : 'cross'}>
-            讯飞连接
+            讯飞连接 {this.aliveTime} s
           </van-button>
         </div>
 
@@ -200,6 +223,7 @@ export default class Audio extends Vue {
   }
 
   playAudio(src: string) {
+    this.iatRecorder && this.iatRecorder.resetResult();
     clearTimeout(this.t);
     this.audio = src;
     (this.$refs.audio as HTMLAudioElement).load();
