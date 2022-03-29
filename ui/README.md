@@ -1,4 +1,5 @@
 # vue-ui
+Vue front-end code for voice assistant
 
 ## Project setup
 ```

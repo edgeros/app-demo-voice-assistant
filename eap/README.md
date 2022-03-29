@@ -1,16 +1,14 @@
-# tpl-typescript
+# eap
 
-EdgerOS app template of TypeScript.
-
-## Usage
+Back-end service code of voice assistant
 
 ### Install:
 
-- `git clone git@github.com:edgeros/tpl-typescript.git`
-- select 'TypeScript' template when [create project from VSCode](https://marketplace.visualstudio.com/items?itemName=edgeros.edgeros)
-- select 'TypeScript' template when create project via CLI (TBD)
+Before deploying the application, you need to install the project dependency
 
-Remember to **`npm install` before you start**
+```shell
+npm install
+```
 
 ### Compile
 

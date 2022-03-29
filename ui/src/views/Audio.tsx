@@ -147,9 +147,10 @@ export default class Audio extends Vue {
             }}>
             设备管理
           </van-button>
+          
           <van-button
-            type={this.iatRecorder.status === 'ing' ? 'primary' : 'danger'}
-            icon={this.iatRecorder.status === 'ing' ? 'success' : 'cross'}>
+            type={this.iatRecorder?.status === 'ing' ? 'primary' : 'danger'}
+            icon={this.iatRecorder?.status === 'ing' ? 'success' : 'cross'}>
             讯飞连接
           </van-button>
         </div>
